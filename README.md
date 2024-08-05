@@ -53,20 +53,20 @@ This project enables you to play Chicken Invaders using your hands. The camera t
 ### HandMouseController
 The "Hand_Mouse_Controller" class is responsible for tracking hand movements using MediaPipe and converting these movements into mouse actions.  
 
-<img src="./Images/HMC1.png" style="width:400px;"/>
-<img src="./Images/HMC1.png" style="width:400px;"/>
-<img src="./Images/HMC3.png" style="width:400px;"/>
+<img src="./Images/HMC1.png" style="width:600px;"/>
+<img src="./Images/HMC2.png" style="width:400px;"/>
+<img src="./Images/HMC3.png" style="width:800px;"/>
 
 ### GameRunner
 The "Game_Runner" class handles launching the Chicken Invaders game, adjusting the game window size and position, and ensuring the camera window is positioned correctly.  
 
-<img src="./Images/GR1.png" style="width:400px;"/>
+<img src="./Images/GR1.png" style="width:500px;"/>
 
 ### Running the Project
 1. Ensure your camera is connected and working.
 
 2. Run the main.py script to start the game and hand tracking:
-   <img src="./Images/M1.png" style="width:400px;"/>
+   <img src="./Images/M1.png" style="width:800px;"/>  
    
    ```bash
     python Main.py
