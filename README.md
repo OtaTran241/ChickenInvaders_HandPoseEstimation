@@ -19,8 +19,10 @@ This project enables you to play Chicken Invaders using your hands. The camera t
 <iframe width="560" height="315" src="https://www.youtube.com/embed/shlkBMwmfos?autoplay=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ### Quick Demo Video
-[![Play Chicken Invaders using hand gestures detected by a camera](./Images/DemoVideo.png)](https://youtu.be/shlkBMwmfos?si=2QF0DWRr1Iv-i_Qx "Play Chicken Invaders using hand gestures detected by a camera")
-
+<video width="560" height="315" controls>
+  <source src="./Images/DemoVideo.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 ## Requirements
 
 - Python 3.10+
