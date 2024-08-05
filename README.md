@@ -19,8 +19,7 @@ This project enables you to play Chicken Invaders using your hands. The camera t
 ✅ [Xem video trên YouTube](https://youtu.be/shlkBMwmfos)  
 [![Play Chicken Invaders With Hand Detection](./Images/DemoVideo.png)](https://youtu.be/shlkBMwmfos?si=2QF0DWRr1Iv-i_Qx "Play Chicken Invaders With Hand Detection")  
 
-<img src="./Images/DemoVideo.gif" style="width:1000px;"/>  
-<img src="./Images/DemoVideo.gif" style="width:1000px;"/>
+<img src="./Images/DemoVideo.gif" style="width:2000px;"/>
 
 
 ## Requirements
