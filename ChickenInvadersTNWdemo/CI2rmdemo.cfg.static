@@ -1,0 +1,15 @@
+[Language]
+singleLanguage=-1
+languageMask=11111001
+
+[Edition]
+bHoliday=No
+
+[Graphics]
+ditherDepth=15
+
+[Input]
+hardwareMouseScaling=1.0
+bGrabCursor=Yes
+
+
