@@ -18,6 +18,9 @@ This project enables you to play Chicken Invaders using your hands. The camera t
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/shlkBMwmfos?autoplay=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+### Quick Demo Video
+[![Build your own team of AI Tools in seconds, not hours | AI Builder Kit](https://res.cloudinary.com/marcomontalbano/image/upload/v1722825823/video_to_markdown/images/youtube--bJlEU1YAECQ-c05b58ac6eb4c4700831b2b3070cd403.jpg)](https://youtu.be/shlkBMwmfos?si=2QF0DWRr1Iv-i_Qx "Build your own team of AI Tools in seconds, not hours | AI Builder Kit")
+
 ## Requirements
 
 - Python 3.10+
