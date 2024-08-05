@@ -71,7 +71,6 @@ The "Game_Runner" class handles launching the Chicken Invaders game, adjusting t
 1. Ensure your camera is connected and working.
 
 2. Run the main.py script to start the game and hand tracking:
-   <img src="./Images/M1.png" style="width:900px;"/>  
    
    ```bash
     python Main.py
