@@ -18,7 +18,7 @@ This project enables you to play Chicken Invaders using your hands. The camera t
 ### Quick Demo Video
 ✅ [Xem video trên YouTube](https://youtu.be/shlkBMwmfos)  
 
-<img src="./Images/DemoVideo.gif" style="width:900px;"/>
+<img src="./Images/DemoVideo.png" style="width:900px;"/>
 
 <img src="./Images/DemoVideo.gif" style="width:1000px;"/>
 
