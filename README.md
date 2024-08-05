@@ -35,8 +35,8 @@ This project enables you to play Chicken Invaders using your hands. The camera t
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/chicken-invaders-hand-control.git
-   cd chicken-invaders-hand-control
+   git clone https://github.com/OtaTran241/ChickenInvaders_HandPoseEstimation.git
+   cd ChickenInvaders_HandPoseEstimation
    ```
 
 2. Install the required packages:
