@@ -16,7 +16,10 @@ This repository contains code to play Chicken Invaders using hand gestures detec
 
 This project enables you to play Chicken Invaders using your hands. The camera tracks your hand movements and translates them into mouse movements and clicks, allowing you to control the game without using a traditional mouse.  
 
-![Introduction Video]([path_to_video_placeholder](https://youtu.be/shlkBMwmfos))
+<iframe width="560" height="315" src="https://www.youtube.com/embed/shlkBMwmfos?autoplay=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+### Quick Demo Video
+[![Build your own team of AI Tools in seconds, not hours | AI Builder Kit](https://res.cloudinary.com/marcomontalbano/image/upload/v1722825823/video_to_markdown/images/youtube--shlkBMwmfos-c05b58ac6eb4c4700831b2b3070cd403.jpg)](https://youtu.be/shlkBMwmfos?si=2QF0DWRr1Iv-i_Qx "Play Chicken Invaders using hand gestures detected by a camera")
 
 ## Requirements
 
@@ -53,18 +56,20 @@ This project enables you to play Chicken Invaders using your hands. The camera t
 ### HandMouseController
 The "Hand_Mouse_Controller" class is responsible for tracking hand movements using MediaPipe and converting these movements into mouse actions.  
 
-<img src="./Image/Chat.png" style="width:400px;"/>
+<img src="./Images/HMC1.png" style="width:650px;"/>
+<img src="./Images/HMC2.png" style="width:650px;"/>
+<img src="./Images/HMC3.png" style="width:850px;"/>
 
 ### GameRunner
 The "Game_Runner" class handles launching the Chicken Invaders game, adjusting the game window size and position, and ensuring the camera window is positioned correctly.  
 
-<img src="./Image/Chat.png" style="width:400px;"/>
+<img src="./Images/GR1.png" style="width:500px;"/>
 
 ### Running the Project
 1. Ensure your camera is connected and working.
 
 2. Run the main.py script to start the game and hand tracking:
-   <img src="./Image/Chat.png" style="width:400px;"/>
+   <img src="./Images/M1.png" style="width:800px;"/>  
    
    ```bash
     python Main.py
