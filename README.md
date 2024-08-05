@@ -20,6 +20,7 @@ This project enables you to play Chicken Invaders using your hands. The camera t
 <video width="560" height="315" controls>
   <source src="./Images/DemoVideo.mp4" type="video/mp4">
 </video>
+
 ## Requirements
 
 - Python 3.10+
