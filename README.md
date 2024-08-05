@@ -1,6 +1,6 @@
 # Chicken Invaders Hand Control
 
-This repository contains code to play Chicken Invaders using hand gestures detected by a camera. The project utilizes MediaPipe for hand tracking and PyAutoGUI for controlling mouse movements.
+This repository contains code to play Chicken Invaders using hand gestures detected by a camera.
 
 ## Table of Contents
 
