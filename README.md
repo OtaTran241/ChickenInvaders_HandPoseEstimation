@@ -18,7 +18,7 @@ This project enables you to play Chicken Invaders using your hands. The camera t
 
 ## Requirements
 
-- Python 3.7+
+- Python 3.10+
 - OpenCV
 - MediaPipe
 - NumPy
