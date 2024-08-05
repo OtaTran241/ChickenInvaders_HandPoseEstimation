@@ -65,7 +65,7 @@ The "Hand_Mouse_Controller" class is responsible for tracking hand movements usi
 ### GameRunner
 The "Game_Runner" class handles launching the Chicken Invaders game, adjusting the game window size and position, and ensuring the camera window is positioned correctly.  
 
-<img src="./Images/GR1.png" style="width:500px;"/>
+<img src="./Images/GR1.png" style="width:800px;"/>
 
 ### Running the Project
 1. Ensure your camera is connected and working.
