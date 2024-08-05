@@ -65,13 +65,13 @@ The "Hand_Mouse_Controller" class is responsible for tracking hand movements usi
 ### GameRunner
 The "Game_Runner" class handles launching the Chicken Invaders game, adjusting the game window size and position, and ensuring the camera window is positioned correctly.  
 
-<img src="./Images/GR1.png" style="width:800px;"/>
+<img src="./Images/GR1.png" style="width:600px;"/>
 
 ### Running the Project
 1. Ensure your camera is connected and working.
 
 2. Run the main.py script to start the game and hand tracking:
-   <img src="./Images/M1.png" style="width:800px;"/>  
+   <img src="./Images/M1.png" style="width:900px;"/>  
    
    ```bash
     python Main.py
