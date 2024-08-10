@@ -60,6 +60,40 @@ This project enables you to play Chicken Invaders using your hands. The camera t
 
 This class is designed to launch and manage a game window, along with a camera tracking window.
 
+```python
+class Game_Runner:
+    def __init__(self, exe_path, window_title, window_width, window_height):
+        self.exe_path = exe_path
+        self.window_title = window_title
+        self.window_width = window_width
+        self.window_height = window_height
+
+    def run_game(self):
+        subprocess.Popen([self.exe_path], creationflags=subprocess.CREATE_NEW_CONSOLE)
+        time.sleep(5) 
+
+        windows = gw.getWindowsWithTitle(self.window_title)
+        if windows:
+            game_window = windows[0]
+            game_window.restore()
+            game_window.resizeTo(self.window_width, self.window_height)
+            game_window.moveTo(0, 0)
+
+            game_window.activate()
+            pyautogui.click(game_window.left + 100, game_window.top + 100) 
+        else:
+            print(f"Không tìm thấy cửa sổ với tiêu đề: {self.window_title}")
+
+        camera_window_title = "Hand Tracking"
+        camera_windows = gw.getWindowsWithTitle(camera_window_title)
+        if camera_windows:
+            camera_window = camera_windows[0]
+            camera_window.resizeTo(640, 480)
+            camera_window.moveTo(1920 - 640, 0) 
+        else:
+            print(f"Không tìm thấy cửa sổ với tiêu đề: {camera_window_title}")
+```
+
 - **Initialization (`__init__` method):**
   - **Attributes:**
     - `exe_path`: Path to the game's executable file (e.g., `exe_path="game/rungame.exe"`).
@@ -80,6 +114,81 @@ This class is designed to launch and manage a game window, along with a camera t
 
 This class utilizes Mediapipe and OpenCV to control the mouse cursor based on hand gestures detected by the webcam.
 
+```python
+class HandMouseController:
+    def __init__(self, screen_width=1920, screen_height=1080, min_detection_confidence=0.8, min_tracking_confidence=0.5):
+        self.camera_width = screen_width
+        self.camera_height = screen_height
+        self.game_window_width = screen_width * 3
+        self.game_window_height = screen_height * 3
+        self.game_window_left = 0
+        self.game_window_top = 0
+
+        self.cap = cv2.VideoCapture(0)
+        self.mp_drawing = mp.solutions.drawing_utils
+        self.mp_hands = mp.solutions.hands
+        self.hands = self.mp_hands.Hands(min_detection_confidence=min_detection_confidence, min_tracking_confidence=min_tracking_confidence)
+
+    def convert_to_screen_coordinates(self, x, y, frame_width, frame_height):
+        screen_x = self.game_window_left + int(self.game_window_width * x / frame_width)
+        screen_y = self.game_window_top + int(self.game_window_height * y / frame_height)
+        screen_x = max(self.game_window_left, min(screen_x, self.game_window_left + self.game_window_width - 1))
+        screen_y = max(self.game_window_top, min(screen_y, self.game_window_top + self.game_window_height - 1))
+        return screen_x, screen_y
+
+    def is_hand_closed(self, hand_landmarks):
+        middle_finger_tip = hand_landmarks.landmark[12]
+        wrist = hand_landmarks.landmark[9]
+        distance = np.linalg.norm(np.array([middle_finger_tip.x - wrist.x, middle_finger_tip.y - wrist.y]))
+        return distance < 0.05
+
+    def run(self):
+        pyautogui.FAILSAFE = False
+        cv2.namedWindow("Hand Tracking", cv2.WINDOW_NORMAL)
+        cv2.resizeWindow("Hand Tracking", self.camera_width, self.camera_height)
+
+        with self.hands:
+            while self.cap.isOpened():
+                ret, frame = self.cap.read()
+                
+                if not ret:
+                    continue
+                
+                image = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+                image = cv2.flip(image, 1)
+                image.flags.writeable = False
+                
+                results = self.hands.process(image)
+                
+                image.flags.writeable = True
+                image = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
+
+                if results.multi_hand_landmarks:
+                    for hand in results.multi_hand_landmarks:
+                        self.mp_drawing.draw_landmarks(image, hand, self.mp_hands.HAND_CONNECTIONS,
+                                                       self.mp_drawing.DrawingSpec(color=(121, 22, 76), thickness=2, circle_radius=4),
+                                                       self.mp_drawing.DrawingSpec(color=(250, 44, 250), thickness=2, circle_radius=2))
+                        wrist_x = hand.landmark[0].x
+                        wrist_y = hand.landmark[0].y
+                        
+                        screen_x, screen_y = self.convert_to_screen_coordinates(wrist_x * frame.shape[1], wrist_y * frame.shape[0], frame.shape[1], frame.shape[0])
+                        
+                        pyautogui.moveTo(screen_x, screen_y)
+                        
+                        if self.is_hand_closed(hand):
+                            pyautogui.mouseDown()
+                        else:
+                            pyautogui.mouseUp()
+                
+                cv2.imshow('Hand Tracking', image)
+
+                if cv2.waitKey(10) & 0xFF == ord('q'):
+                    break
+
+        self.cap.release()
+        cv2.destroyAllWindows()
+```
+
 - **Initialization (`__init__` method):**
   - **Attributes:**
     - `camera_width` and `camera_height`: Dimensions of the camera feed window (e.g., `camera_width=640`, `camera_height=480`).
@@ -90,7 +199,7 @@ This class utilizes Mediapipe and OpenCV to control the mouse cursor based on ha
   - Converts hand coordinates from the camera frame to screen coordinates, mapping them relative to the game window's position and size.
 
 - **Hand Gesture Recognition (`is_hand_closed` method):**
-  - Determines if the hand is closed (i.e., a click gesture) by measuring the distance between the wrist and middle finger landmarks.
+  - Determines if the hand is closed (i.e., a click gesture) by measuring the distance between the end of middle finger and middle finger landmarks.
 
 - **Running the Hand Tracking (`run` method):**
   - **Steps:**
