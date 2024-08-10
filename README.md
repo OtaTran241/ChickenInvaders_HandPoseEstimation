@@ -55,17 +55,52 @@ This project enables you to play Chicken Invaders using your hands. The camera t
    python Main.py
    ```
 ## Code Overview
-### HandMouseController
-The "Hand_Mouse_Controller" class is responsible for tracking hand movements using MediaPipe and converting these movements into mouse actions.  
 
-<img src="./Images/HMC1.png" style="width:850px;"/>
-<img src="./Images/HMC2.png" style="width:850px;"/>
-<img src="./Images/HMC3.png" style="width:900px;"/>
+### 1. `Game_Runner` Class
 
-### GameRunner
-The "Game_Runner" class handles launching the Chicken Invaders game, adjusting the game window size and position, and ensuring the camera window is positioned correctly.  
+This class is designed to launch and manage a game window, along with a camera tracking window.
 
-<img src="./Images/GR1.png" style="width:600px;"/>
+- **Initialization (`__init__` method):**
+  - **Attributes:**
+    - `exe_path`: Path to the game's executable file (e.g., `exe_path="game/rungame.exe"`).
+    - `window_title`: Title of the game window (e.g., `window_title="GameRunner"`).
+    - `window_width`: Desired width of the game window (e.g., `window_width=1920`).
+    - `window_height`: Desired height of the game window (e.g., `window_height=1080`).
+
+- **Running the Game (`run_game` method):**
+  - **Steps:**
+    1. Launches the game using the specified executable path.
+    2. Waits for the game window to appear (5 seconds delay).
+    3. Adjusts the game window size and position according to the specified dimensions.
+    4. Moves the game window to the top-left corner of the screen.
+    5. Activates the game window and simulates a mouse click.
+    6. Searches for a window titled "Hand Tracking," resizes it, and moves it to the top-right corner of the screen.
+
+### 2. `HandMouseController` Class
+
+This class utilizes Mediapipe and OpenCV to control the mouse cursor based on hand gestures detected by the webcam.
+
+- **Initialization (`__init__` method):**
+  - **Attributes:**
+    - `camera_width` and `camera_height`: Dimensions of the camera feed window (e.g., `camera_width=640`, `camera_height=480`).
+    - **Mediapipe Setup:**
+      - Initializes Mediapipe's hand tracking model with specified detection and tracking confidence levels.
+
+- **Screen Coordinate Conversion (`convert_to_screen_coordinates` method):**
+  - Converts hand coordinates from the camera frame to screen coordinates, mapping them relative to the game window's position and size.
+
+- **Hand Gesture Recognition (`is_hand_closed` method):**
+  - Determines if the hand is closed (i.e., a click gesture) by measuring the distance between the wrist and middle finger landmarks.
+
+- **Running the Hand Tracking (`run` method):**
+  - **Steps:**
+    1. Captures video from the webcam.
+    2. Processes each video frame to detect hand landmarks.
+    3. Draws hand landmarks on the video frame.
+    4. Calculates and moves the mouse cursor on the screen based on the detected hand position.
+    5. Detects if the hand is closed to simulate a mouse click.
+    6. Displays the processed video feed with hand tracking until the user presses 'q' to quit the application.
+
 
 ### Running the Project
 1. Ensure your camera is connected and working.
