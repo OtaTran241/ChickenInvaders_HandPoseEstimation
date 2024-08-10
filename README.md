@@ -18,7 +18,9 @@ This repository contains code to play Chicken Invaders using hand gestures detec
 This project enables you to play Chicken Invaders using your hands. The camera tracks your hand movements and translates them into mouse movements and cup your hands to shoot, allowing you to control the game without using a traditional mouse.  
 ### Quick Demo Video
 ✅ [YouTube](https://youtu.be/shlkBMwmfos)  
-[![Play Chicken Invaders With Hand Detection](./Images/DemoVideo.png)](https://youtu.be/shlkBMwmfos?si=2QF0DWRr1Iv-i_Qx "Play Chicken Invaders With Hand Detection")  
+<a href="https://youtu.be/shlkBMwmfos?si=2QF0DWRr1Iv-i_Qx" title="Play Chicken Invaders With Hand Detection">
+    <img src="./Images/DemoVideo.png" alt="Play Chicken Invaders With Hand Detection" width="400"/>
+</a>
 
 <img src="./Images/DemoVideo.gif" style="width:1000px;"/>
 
