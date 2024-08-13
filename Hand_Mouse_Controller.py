@@ -45,8 +45,8 @@ class HandMouseController:
     def is_hand_closed(self, hand_landmarks):
         # Tính khoảng cách giữa ngón giữa(12) và vị trí cuối của ngón giữa(9)
         middle_finger_tip = hand_landmarks.landmark[12]
-        wrist = hand_landmarks.landmark[9]
-        distance = np.linalg.norm(np.array([middle_finger_tip.x - wrist.x, middle_finger_tip.y - wrist.y]))
+        end_middle_finger = hand_landmarks.landmark[9]
+        distance = np.linalg.norm(np.array([middle_finger_tip.x - end_middle_finger.x, middle_finger_tip.y - end_middle_finger.y]))
         return distance < 0.05
 
     def run(self):
