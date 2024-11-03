@@ -10,7 +10,7 @@ This repository contains code to play Chicken Invaders using hand gestures detec
 - [Installation](#installation)
 - [Usage](#usage)
 - [Code Overview](#code-overview)
-  - [HandMouseController](#handmousecontroller)
+  - [HandMouseController](#Game_Runner-Class)
   - [GameRunner](#gamerunner)
 
 ## Introduction
